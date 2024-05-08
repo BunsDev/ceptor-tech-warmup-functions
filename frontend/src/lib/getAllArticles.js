@@ -1,4 +1,3 @@
-// This is the OG code from the tutorial, the modified version is in public...
 // Import necessary modules from ethers library
 import { ethers, JsonRpcProvider } from "ethers";
 // Import the dotenv module to load environment variables
@@ -9,8 +8,6 @@ import NewsArchiveABI from "./newsArchiveABI.json";
 
 // Load environment variables from .env file
 config();
-console.log("Provider URL:", process.env.PROVIDER_URL);
-console.log("Contract Address:", process.env.CONTRACT_ADDRESS);
 
 // Get provider URL and contract address from environment variables
 const providerUrl = process.env.PROVIDER_URL;
@@ -31,6 +28,8 @@ async function getAllArticles() {
   try {
     // Call the getAllArticles function of the contract
     const articles = await newsArchiveContract.getAllArticles();
+    console.log('All articles: ', articles)
+    // console.log(articles)
     // Return the articles
     return articles;
   } catch (error) {

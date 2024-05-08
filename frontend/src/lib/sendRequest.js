@@ -12,15 +12,15 @@ const contractAddress = process.env.CONTRACT_ADDRESS;
 const provider = new JsonRpcProvider(providerUrl);
 const newsArchiveContract = new ethers.Contract(contractAddress, NewsArchiveABI, provider);
 
-async function getAllArticles() {
-  try {
-    const articles = await newsArchiveContract.getAllArticles();
-    return articles;
-  } catch (error) {
-    console.error("Error fetching articles:", error);
-    return [];
-  }
-}
+// async function getAllArticles() {
+//   try {
+//     const articles = await newsArchiveContract.getAllArticles();
+//     return articles;
+//   } catch (error) {
+//     console.error("Error fetching articles:", error);
+//     return [];
+//   }
+// }
 
 async function sendRequest() {
   try {
@@ -40,4 +40,4 @@ async function sendRequest() {
   }
 }
 
-export { getAllArticles, sendRequest };
+export default sendRequest;
